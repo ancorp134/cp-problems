@@ -17,46 +17,30 @@ using namespace std;
  
  
 void solve(){
-    ll n; cin>>n;
-    vl a(n), b(n);
+
+    int n; cin>>n;
+    vi a(n),b(n);
     fri(i,0,n) cin>>a[i];
     fri(i,0,n) cin>>b[i];
 
-    vector<vl> vp(2);
+    vector<pair<int,int>> vp;
 
-    fri(i,0,n){
-        vp[a[i]].pb(b[i]);
-    } 
+    fri(i,0,n) vp.push_back({b[i],a[i]});
 
-    fri(i,0,2){
-        sort(all(vp[i]));
-    }
+    sort(all(vp));
+    // for(auto i : vp){
+    //     cout<< i.first << " "<<i.second << endl;
+    // }
 
-    ll ans = 0;
+    ll ans = 0, sp = 0;
 
-    if(vp[0].size()==vp[1].size()){
-        ans-= min(vp[0][0],vp[1][0]);
-    }
-
-    while(vp[0].size() && vp[1].size()){
-        ans += (vp[0].back() + vp[1].back())*2;
-        vp[0].pp();
-        vp[1].pp(); 
-    }
-
-    while(vp[0].size()){
-        ans += vp[0].back();
-        vp[0].pp();
-    }
-
-     while(vp[1].size()){
-        ans += vp[1].back();
-        vp[1].pp();
+    for(auto i : vp){
+        ans += i.second + sp;
+        sp = i.first;
     }
 
     cout<< ans << endl;
 
-   return;
 }
      
 
