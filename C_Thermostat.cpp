@@ -13,40 +13,21 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define dec greater<int>
 #define endl "\n"
-
-
  
  
-void solve(){
-    int n,ls; cin>>n>>ls;
-    vi v(101,0);
-
-    fri(i,0,n){
-        int x; cin>>x;
-        v[x]=1;
-    }
-
-    fri(i,0,101){
-        if(!v[i]){
-            if(ls>=i){
-                ls-=i;
-            }
-            else{
-                if(ls==0 && n==0){
-                    cout<<"YES"<<endl;
-                    
-                }
-                else cout<<"NO"<<endl;
-                return;
-               
-            }
-        }
-        else n--;
-    }
-
-    cout<<"YES"<<endl;
+ void solve(){
+    int l, r, x;
+	cin >> l >> r >> x;
+	int a, b;
+	cin >> a >> b;
+	if (a == b) cout << "0\n";
+	else if (abs(a - b) >= x) cout << "1\n";
+	else if (abs(a - l) >= x && abs(l - b) >= x) cout << "2\n";
+	else if (abs(a - r) >= x && abs(r - b) >= x) cout << "2\n";
+	else if (abs(a - l) >= x && abs(l - r) >= x && abs(r - b) >= x) cout << "3\n";
+	else if (abs(a - r) >= x && abs(r - l) >= x && abs(l - b) >= x) cout << "3\n";
+	else cout << "-1\n";
     return;
-    
 }
      
 
@@ -60,3 +41,6 @@ int main(){
     }
 	return 0;
 }
+
+     
+
