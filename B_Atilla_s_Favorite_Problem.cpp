@@ -15,19 +15,14 @@ using namespace std;
 #define endl "\n"
  
  
- void solve(){
-    int l, r, x;
-	cin >> l >> r >> x;
-	int a, b;
-	cin >> a >> b;
-	if (a == b) cout << "0\n";
-	else if (abs(a - b) >= x) cout << "1\n";
-	else if (abs(a - l) >= x && abs(l - b) >= x) cout << "2\n";
-	else if (abs(a - r) >= x && abs(r - b) >= x) cout << "2\n";
-	else if (abs(a - l) >= x && abs(l - r) >= x && abs(r - b) >= x) cout << "3\n";
-	else if (abs(a - r) >= x && abs(r - l) >= x && abs(l - b) >= x) cout << "3\n";
-	else cout << "-1\n";
-    return;
+ 
+void solve(){
+    int n; cin>>n;
+    string s; cin>>s;
+
+    sort(all(s));
+
+    cout << s[n-1]-'a' + 1 << endl;
 }
      
 
@@ -41,5 +36,3 @@ int main(){
     }
 	return 0;
 }
-     
-
