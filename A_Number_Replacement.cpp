@@ -17,16 +17,30 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n; cin>>n;
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    vi v(n);
 
-    cout << (a+b+c)-maxi-mini << endl;
-    return;
+    fri(i,0,n) cin>> v[i];
 
+    string s; cin>>s;
 
+    map<int , char > mpp;
 
+    int flag = 0;
+    fri(i,0,n){
+        if(!mpp.count(v[i])){
+            mpp[v[i]]=s[i];
+        }
+        else {
+            if(mpp[v[i]]!=s[i]){
+                flag=1;
+                break;
+            }
+        }
+    }
+
+    cout<< (flag ? "NO" : "YES") << endl;
 }
      
 

@@ -17,15 +17,32 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n,k; cin>>n>>k;
+    string s; cin>>s;
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    vector<int> arr(26,0);
 
-    cout << (a+b+c)-maxi-mini << endl;
+    for(auto i : s){
+        arr[i-'a']++;
+    }
+
+    string ans = "";
+    fri(i,0 ,min(25, n/k )){
+        while(k-ans.size() > arr[i]){
+            ans.pb(i + 'a');
+        }
+    }
+
+    char c = 'a' + min(25,n/k);
+
+    while(k>ans.size()){
+        ans += c;
+    }
+
+    reverse(all(ans));
+
+    cout<<ans<<endl;
     return;
-
-
 
 }
      

@@ -17,16 +17,12 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n; cin>>n;
+    string s; cin>>s;
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    sort(all(s));
 
-    cout << (a+b+c)-maxi-mini << endl;
-    return;
-
-
-
+    cout << s[n-1]-'a' + 1 << endl;
 }
      
 

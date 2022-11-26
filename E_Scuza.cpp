@@ -17,15 +17,39 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
 
-    cout << (a+b+c)-maxi-mini << endl;
+    ll n,q; cin>>n>>q;
+    vl a(n);
+    fri(i,0,n) cin>>a[i];
+    
+
+    vl pref(n) , mx(n);
+    pref[0] = a[0];
+    mx[0] = a[0];
+    fri(i,1,n){
+        mx[i] = max( (int)mx[i-1] , (int)a[i] );
+        pref[i] = pref[i-1] + a[i];
+    }
+    
+
+    ll maxpref = pref[n-1];
+
+    while(q--){
+
+        int x; cin>>x;
+        int p = (upper_bound(all(mx),x) - mx.begin())-1;
+
+        if(p== -1){
+            cout<< "0" <<" ";
+        }
+        else cout<< pref[p] << " ";
+
+        }
+
+    cout<<endl;
+    
     return;
-
-
 
 }
      

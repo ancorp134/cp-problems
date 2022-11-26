@@ -17,16 +17,17 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    string s; cin>>s;
+   
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    string t = " ";
 
-    cout << (a+b+c)-maxi-mini << endl;
+    fri(i,0,51){
+        t += "Yes";
+    } 
+
+    cout << (t.find(s) != string::npos ? "YES" : "NO") << endl;
     return;
-
-
-
 }
      
 

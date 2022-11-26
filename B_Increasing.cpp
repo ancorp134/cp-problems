@@ -17,16 +17,24 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n;
+    cin>>n;
+    vi v(n);
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    fri(i,0,n) cin>>v[i];
 
-    cout << (a+b+c)-maxi-mini << endl;
+    sort(all(v));
+
+    int flag=0;
+    fri(i,1,n){
+        if(v[i]-v[i-1]<=0){
+            flag=1;
+            break;
+        }
+    }
+
+    cout<< (flag ? "NO" : "YES") <<endl;
     return;
-
-
-
 }
      
 

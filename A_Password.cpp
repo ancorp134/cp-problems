@@ -14,17 +14,35 @@ using namespace std;
 #define dec greater<int>
 #define endl "\n"
  
+int fact(int n)
+{
+    if(n==0)
+	return 1;
+	int res = 1;
+	for (int i = 2; i <= n; i++)
+		res = res * i;
+	return res;
+} 
+
+
  
+
+
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n; cin>>n;
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    vi v(n);
+    fri(i,0,n) cin>>v[i];
 
-    cout << (a+b+c)-maxi-mini << endl;
+    n = 10-n;
+
+    if(n==0 || n==1){
+        cout<< "0" << endl;
+    }
+
+    cout<< 6 * (fact(n) / (2*fact(n-2)))<<endl;
     return;
-
 
 
 }
