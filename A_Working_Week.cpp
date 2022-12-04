@@ -17,16 +17,9 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
-
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
-
-    cout << (a+b+c)-maxi-mini << endl;
+    ll n; cin>>n;
+    cout<< ((n-3)/3)-1 << endl;
     return;
-
-
-
 }
      
 

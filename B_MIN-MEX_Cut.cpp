@@ -17,16 +17,22 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+   string s; cin>>s;
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+   int sz = count(all(s),'0');
+   
 
-    cout << (a+b+c)-maxi-mini << endl;
-    return;
+   if(sz==0) cout<<"0"<<endl;
+   else {
+    int first = s.find('0');
+    int last = s.rfind('0');
 
+    if(last-first+1 == sz) cout<<"1"<<endl;
+    else cout<<"2"<<endl;
+   }
 
-
+   return;
+ 
 }
      
 

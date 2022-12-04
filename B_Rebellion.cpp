@@ -17,15 +17,24 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n; cin>>n;
+    vi v(n);
+    fri(i,0,n) cin>>v[i];
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    int j=0;
+    int cnt=0;
 
-    cout << (a+b+c)-maxi-mini << endl;
-    return;
+    for(int i=n-1;i>j;i--){
+        if(v[i]==1) continue;
+        while(j<i && v[j]==0){
+            j++;
+        }
+        if(j==i) break;
+        cnt++;
+        j++;
+    }   
 
-
+    cout<<cnt<<endl;
 
 }
      

@@ -18,38 +18,45 @@ using namespace std;
  
 void solve(){
     ll n; cin>>n;
-    vl a(n) , b(n);
-
-    ll t1=0 , t2=0; 
-    fri(i,0,n) {
-        cin>>a[i];
-        if(a[i]==0) t1++;
-        else t2==0;
-    }
-        
-
+    vl a(n), b(n);
+    fri(i,0,n) cin>>a[i];
     fri(i,0,n) cin>>b[i];
 
-    vector<pair<int,int>> v;
+    vector<vl> vp(2);
 
     fri(i,0,n){
-        v.push_back({b[i],a[i]});
+        vp[a[i]].pb(b[i]);
+    } 
+
+    fri(i,0,2){
+        sort(all(vp[i]));
     }
 
-    sort(all(v));
+    ll ans = 0;
 
-    
+    if(vp[0].size()==vp[1].size()){
+        ans-= min(vp[0][0],vp[1][0]);
+    }
 
-    if(t1<t2){
-        fri(i,0,n){
-            if(i&1){
-                
-            }
-        }
-   }
+    while(vp[0].size() && vp[1].size()){
+        ans += (vp[0].back() + vp[1].back())*2;
+        vp[0].pp();
+        vp[1].pp(); 
+    }
 
-   
-    return;
+    while(vp[0].size()){
+        ans += vp[0].back();
+        vp[0].pp();
+    }
+
+     while(vp[1].size()){
+        ans += vp[1].back();
+        vp[1].pp();
+    }
+
+    cout<< ans << endl;
+
+   return;
 }
      
 

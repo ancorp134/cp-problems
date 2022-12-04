@@ -17,16 +17,23 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n,k; cin>>n>>k;
+    vi v(n);
+    fri(i,0,n) cin>> v[i];
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
-
-    cout << (a+b+c)-maxi-mini << endl;
+    if(n==1 && v[0]==k){
+        cout<<"Yes"<<endl;
+        return;
+    }
+    
+    fri(i,0,n){
+        if(v[i]==k && i!=n-1){
+            cout<<"Yes"<<endl;
+            return;
+        }
+    }
+    cout<<"No"<<endl;
     return;
-
-
-
 }
      
 

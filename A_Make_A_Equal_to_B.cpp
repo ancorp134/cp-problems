@@ -17,16 +17,23 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n; cin>>n;
+    vi a(n) , b(n);
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    int ao=0 , bo=0 , cnt=0;
 
-    cout << (a+b+c)-maxi-mini << endl;
+    fri(i,0,n) cin>>a[i];
+    fri(i,0,n) cin>>b[i];
+
+    fri(i,0,n){
+        if(a[i]) ao++;
+        if(b[i]) bo++;
+        if(a[i]!=b[i]) cnt++;
+    }
+
+    cout<< min(cnt , abs(bo-ao)+1) << endl;
+
     return;
-
-
-
 }
      
 

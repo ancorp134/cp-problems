@@ -14,19 +14,32 @@ using namespace std;
 #define dec greater<int>
 #define endl "\n"
  
- 
+const int sz=  1001;
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n; cin>>n;
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    vi v(sz , -1);
+    fri(i,0,n){
+        int x; cin>>x;
+        v[x] = i;
+    }
 
-    cout << (a+b+c)-maxi-mini << endl;
+    int ans = -1e8;
+    fri(i,0,sz){
+
+        if(v[i]==-1) continue;
+
+        fri(j,i,sz){
+            if(v[j]==-1) continue;
+            if( __gcd(i,j)==1){
+                ans = max(ans , v[i] + v[j] +2);
+            }
+        }
+    }
+    
+    cout<< (ans == -1e8 ? -1 : ans) <<endl;
     return;
-
-
-
 }
      
 

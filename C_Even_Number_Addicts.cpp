@@ -17,16 +17,21 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
-
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
-
-    cout << (a+b+c)-maxi-mini << endl;
+    int n; cin>>n;
+    
+    int e=0,o=0;
+    
+    fri(i,0,n){
+        int x; cin>>x;
+        if(x&1) o++;
+        else e++;
+    }
+    if(o%4==2) cout<<"Bob"<<endl;
+    else if(o%4==3) cout<<"Alice"<<endl;
+    else if(o%4==0) cout<<"Alice"<<endl;
+    else if(e%2==1) cout<<"Alice"<<endl;
+    else cout<<"Bob"<<endl;
     return;
-
-
-
 }
      
 

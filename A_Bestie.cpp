@@ -17,16 +17,33 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n; cin>>n;
+    vi v(n+1);
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    fri(i,1,n+1) cin>>v[i];
 
-    cout << (a+b+c)-maxi-mini << endl;
+    int curr_gcd=v[0];
+    fri(i,1,n+1){
+        curr_gcd = __gcd(curr_gcd , v[i]);
+    }
+
+    if(curr_gcd==1){
+        cout<<"0"<<endl;
+        return;
+    }
+
+    int ans = 3;
+
+    fri(i,1,n+1){
+        int val = __gcd(i,curr_gcd);
+        if(val==1){
+            ans = min(ans , n-i+1);
+        }
+    }
+
+    cout << ans << endl;
+
     return;
-
-
-
 }
      
 

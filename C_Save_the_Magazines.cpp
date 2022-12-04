@@ -17,16 +17,30 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n; cin>>n;
+    string s; cin>>s;
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    vi v(n);
+    fri(i,0,n) cin>>v[i];
 
-    cout << (a+b+c)-maxi-mini << endl;
-    return;
+    int ans=0;
 
+    fri(i,0,n){
+        if( s[i]=='1'){
+            int j=i;
+            while(j>0 && v[j]<v[j-1] && s[j-1]=='0'){
+                s[j]='0';
+                s[j-1]='1';
+                j--;
+            }
+            v[j]= max(v[j],v[i]);
+        }
 
+    }
 
+    
+
+    cout<<ans<<endl;
 }
      
 

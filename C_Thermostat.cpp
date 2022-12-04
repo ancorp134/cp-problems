@@ -15,18 +15,19 @@ using namespace std;
 #define endl "\n"
  
  
- 
-void solve(){
-    int a,b,c; cin>>a>>b>>c;
-
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
-
-    cout << (a+b+c)-maxi-mini << endl;
+ void solve(){
+    int l, r, x;
+	cin >> l >> r >> x;
+	int a, b;
+	cin >> a >> b;
+	if (a == b) cout << "0\n";
+	else if (abs(a - b) >= x) cout << "1\n";
+	else if (abs(a - l) >= x && abs(l - b) >= x) cout << "2\n";
+	else if (abs(a - r) >= x && abs(r - b) >= x) cout << "2\n";
+	else if (abs(a - l) >= x && abs(l - r) >= x && abs(r - b) >= x) cout << "3\n";
+	else if (abs(a - r) >= x && abs(r - l) >= x && abs(l - b) >= x) cout << "3\n";
+	else cout << "-1\n";
     return;
-
-
-
 }
      
 
@@ -40,3 +41,5 @@ int main(){
     }
 	return 0;
 }
+     
+

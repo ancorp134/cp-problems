@@ -13,20 +13,40 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define dec greater<int>
 #define endl "\n"
- 
+
+
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    int n,ls; cin>>n>>ls;
+    vi v(101,0);
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    fri(i,0,n){
+        int x; cin>>x;
+        v[x]=1;
+    }
 
-    cout << (a+b+c)-maxi-mini << endl;
+    fri(i,0,101){
+        if(!v[i]){
+            if(ls>=i){
+                ls-=i;
+            }
+            else{
+                if(ls==0 && n==0){
+                    cout<<"YES"<<endl;
+                    
+                }
+                else cout<<"NO"<<endl;
+                return;
+               
+            }
+        }
+        else n--;
+    }
+
+    cout<<"YES"<<endl;
     return;
-
-
-
+    
 }
      
 

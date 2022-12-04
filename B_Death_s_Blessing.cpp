@@ -17,15 +17,29 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    int n; cin>>n;
+    vi a(n),b(n);
+    fri(i,0,n) cin>>a[i];
+    fri(i,0,n) cin>>b[i];
 
-    cout << (a+b+c)-maxi-mini << endl;
-    return;
+    vector<pair<int,int>> vp;
 
+    fri(i,0,n) vp.push_back({b[i],a[i]});
 
+    sort(all(vp));
+    // for(auto i : vp){
+    //     cout<< i.first << " "<<i.second << endl;
+    // }
+
+    ll ans = 0, sp = 0;
+
+    for(auto i : vp){
+        ans += i.second + sp;
+        sp = i.first;
+    }
+
+    cout<< ans << endl;
 
 }
      

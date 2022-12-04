@@ -15,18 +15,32 @@ using namespace std;
 #define endl "\n"
  
  
+int help(string s){
+    if(s.back()=='M'){
+        return 0;
+    }
+    else if(s.back()=='L'){
+        return s.size();
+    }
+    else return -s.size();
+}
+
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
+    string a , b; cin>>a>>b;
 
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
+    int x = help(a);
+    int y = help(b);
 
-    cout << (a+b+c)-maxi-mini << endl;
+    if(x<y){
+        cout<<"<"<<endl;
+    }
+    else if(x>y){
+        cout<<">"<<endl;
+    }
+    else cout<<"="<<endl;
+
     return;
-
-
-
 }
      
 
