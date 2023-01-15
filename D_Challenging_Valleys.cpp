@@ -16,32 +16,24 @@ using namespace std;
 #define dec greater<int>
 #define endl "\n"
 
-bool prime(int n)
-{
-    if (n <= 1)
-        return false;
 
-    for (int i = 2; i <= sqrt(n); i++)
-        if (n % i == 0)
-            return false;
-
-    return true;
-}
 
 void solve()
 {
-    int n;
-    cin >> n;
-    set<int> s;
+   int n; cin>>n;
+   vi v(n);
+   fri(i,0,n) cin>>v[i];
 
-    fri(i, 0, n)
-    {
-        int x;
-        cin >> x;
-        s.insert(x);
-    }
-
-    cout << (prime(s.size()) ? "YES" : "NO") << endl;
+   int i=0, j=n-1, flag=1;
+   while(i<=j){
+        if(v[i]>v[j]){
+            flag=0;
+            break;
+        }
+        i++; j--;
+   }
+   cout<< (flag ? "YES" : "NO") << endl;
+   return;
 }
 
 int main()
