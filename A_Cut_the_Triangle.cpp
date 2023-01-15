@@ -17,15 +17,16 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
-
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
-
-    cout << (a+b+c)-maxi-mini << endl;
-    return;
-
-
+    set<int> sx,sy;
+    fri(i,0,3){
+        
+        int x,y; cin>>x>>y;
+        sx.insert(x);
+        sy.insert(y);
+        
+    }
+    if(sx.size()==3 || sy.size()==3) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
 
 }
      
@@ -36,7 +37,7 @@ int main(){
 	int t;
     cin>>t;
     while(t--){
-        solve();
+         solve();
     }
 	return 0;
 }

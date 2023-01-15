@@ -17,16 +17,23 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
-
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
-
-    cout << (a+b+c)-maxi-mini << endl;
-    return;
-
-
-
+    int n; cin>>n;
+    if (n % 2 == 1){
+      for (int j = 0; j < n; j++){
+        cout << 1;
+        if (j < n - 1){
+          cout << ' ';
+        }
+      }
+    }
+    if (n % 2 == 0){
+      cout << 1 << ' ';
+      for (int j = 0; j < n - 2; j++){
+        cout << 2 << ' ';
+      }
+      cout << 3;
+    }
+    cout << endl;
 }
      
 
@@ -39,4 +46,4 @@ int main(){
         solve();
     }
 	return 0;
-}
+}   

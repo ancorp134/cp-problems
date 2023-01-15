@@ -17,16 +17,15 @@ using namespace std;
  
  
 void solve(){
-    int a,b,c; cin>>a>>b>>c;
-
-    int maxi = max({a,b,c});
-    int mini = min({a,b,c});
-
-    cout << (a+b+c)-maxi-mini << endl;
+    int n; cin>>n;
+    int tmp=0,e=-1;
+    fri(i,0,n){
+        int x; cin>>x;
+        tmp = __gcd(tmp,x);
+        e=max(e,x);
+    }
+    cout<< (e/tmp) << endl;
     return;
-
-
-
 }
      
 
