@@ -21,7 +21,16 @@ void solve(){
     int n; cin>>n;
     string s; cin>>s;
 
-    map<string , int> mpp;
+    int ans =  n-1;
+
+    fri(i,1,n){
+        if(s[i-1]==s[i+1]){
+            ans--;
+        }
+    }
+
+    cout<<ans<<endl;
+    return;
 
 }
      
