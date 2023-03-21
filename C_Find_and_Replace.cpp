@@ -19,43 +19,40 @@ void solve(){
 
     int n; cin>>n;
     string s;cin>>s;
-    set<char>st;
-    fri(i,0,n){
-    	st.insert(s[i]);
-    }
-    int flag=0;
-    int x=st.size();
-    map<char,int>mpp;
-    vector<vi> v(x);
-    int k=0;
-    fri(i,0,n){
-    	if(!mpp.count(s[i])){
-    		k++;
-    		mpp[s[i]]++;
-    		char ch=s[i];
-    		fri(j,i,n){
-    			if(s[j]==ch){
-    				v[k-1].pb(j+1);
-    			}
-    		}
-    		
-    	}
-    }
     
-    fri(i,0,x){
-    	int d=v[i].size();
-    	int ev=0,od=0;
-    	for(int j=0;j<d;j++){
-    		if((v[i][j]&1))od++;
-    		else ev++;
-    	}
-    	if(ev>0 && od>0){
-    		flag=1;
-    		break;
-    	}
-    }
-    cout<< (flag ? "NO" : "YES" ) << endl;
+	map<char,vi> mpp;
+
+	fri(i,0,n){
+		mpp[s[i]].pb(i);
+	}
+
+	bool flag = true;
+
+	for(auto i : mpp){
+		if(i.second.size()==1) continue;
+		else {
+				int ev =0 , od=0;
+				for(auto j : i.second){
+					if(j&1) od++;
+					else ev++;
+				}
+				if(ev && od) {
+					flag = false;
+					break;
+				} 			
+			}
+			
+			
+		}
+
+		cout<< (flag ? "YES" : "NO") << endl;
+		return;
 }
+
+    
+    
+    
+
      
 
  
